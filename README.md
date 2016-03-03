@@ -10,7 +10,7 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 ```
 	> git clone https://github.com/adai183/react_meetup.git
-	> cd meetup_form
+	> cd react_meetup
 	> npm install
 	> gulp
 ```
