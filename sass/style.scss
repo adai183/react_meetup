@@ -1,0 +1,74 @@
+body {
+    background: url("images/background.png") 100% no-repeat;
+    background-size: auto;
+    font: 500 22px "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+
+h1 {
+  font-family: fantasy;
+  font-size: 60px;
+  font-variant: small-caps;
+  font-weight: 400;
+}
+
+.header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+input {
+  background-position: 7px 7px;
+  background-repeat: no-repeat;
+  padding-left:30px;
+  color:#000;
+}
+
+.input-distance {
+    background-image: url(images/travel.png);
+    text-align: right;
+}
+
+.input-name {
+    
+}
+
+.input-country {
+
+}
+
+.input-postalCode {
+
+}
+
+.btn-primary {
+  font-size: 25px;
+}
+
+.input-group{
+      width: 100%;
+    }
+
+.cont {
+      margin-bottom: 5%;
+    }
+
+.error {
+      color: red;
+    }
+
+.thanks {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+      background-color: rgba(0,0,0,0.2);
+      font-size: 31px;
+    }
+
+.fade {
+      opacity: 1;
+    }
+
+
+.black {
+  color: black
+}

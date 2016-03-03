@@ -1,0 +1,45 @@
+<head>
+    <link
+        rel="stylesheet"
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+    />
+    <style>
+      #map{
+        margin: 2% 2% 2% 2%;
+      }
+    </style>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="map" style="width: 94%; height: 94vh"></div>
+    <script type="text/javascript">
+        var maxDistance = 2000;
+
+        var map = L.map('map', {minZoom:2}).setView([30,0], 2);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var myFirebase = new Firebase("https://react-meet-up.firebaseio.com/items/");
+        myFirebase.orderByKey().on("child_added", function(snapshot) {
+            var person = snapshot.val();
+
+            if (person.distance < maxDistance){
+              var marker = L.circle([person.lat,person.lng], person.distance * 1000).addTo(map);
+            }else if(person.distance >= maxDistance) {
+              var marker = L.circle([person.lat,person.lng], maxDistance * 1000).addTo(map);
+            }
+            var town = person.town + ' , ' ;
+            marker.bindPopup('<p> ' + person.name + '<br/>' + town + person.country + '</p>');
+
+        });
+
+
+
+    </script>
+</body>

@@ -1,0 +1,75 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+    <title>join the meet up tribe</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .row {
+        height: 10vh;
+      }
+
+      .input-group{
+        margin-top: 5%;
+        width: 100%;
+        height: 80vh;
+      }
+
+      .cont {
+        margin-bottom: 5%;
+      }
+
+      .input-distance {
+        text-align: right;
+      }
+
+      .error {
+        color: red;
+      }
+
+      body > div > div > div.input-group > div.thanks.text-center.fade{
+        margin-top: 40%;
+      }
+
+      .thanks {
+        opacity: 0;
+        transition: opacity 1s ease-in;
+      }
+
+      .fade {
+        opacity: 1;
+      }
+
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (max-width : 420px) {
+      .error {
+        margin-top: 25%;
+      }
+
+      .row {
+        font-size: 0.7em;
+      }
+    }
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="container" align="center"></div>
+</body>
+<script src="main.js"></script>
+<script>
+var data;
+var tribeNumber;
+var ref = new Firebase("https://react-meet-up.firebaseio.com/items");
+  ref.on("value", function(snapshot) {
+    data = snapshot.val();
+    tribeNumber = Object.keys(data).length -1;
+    console.log(tribeNumber + ' fellow react geeks have joined so far.');
+    console.log("Tribe data: ", data);
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+</script>
