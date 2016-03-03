@@ -66,7 +66,7 @@ var tribeNumber;
 var ref = new Firebase("https://react-meet-up.firebaseio.com/items");
   ref.on("value", function(snapshot) {
     data = snapshot.val();
-    tribeNumber = Object.keys(data).length -1;
+    tribeNumber = Object.keys(data).length;
     console.log(tribeNumber + ' fellow react geeks have joined so far.');
     console.log("Tribe data: ", data);
 }, function (errorObject) {
